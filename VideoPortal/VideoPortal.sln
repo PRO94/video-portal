@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPortal", "VideoPortal\VideoPortal.csproj", "{97925372-428D-4799-8DED-939C3176D461}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPortal.Tests", "VideoPortal.Tests\VideoPortal.Tests.csproj", "{A75AABF2-BC0C-4DF9-9487-CAC89555DD06}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97925372-428D-4799-8DED-939C3176D461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97925372-428D-4799-8DED-939C3176D461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97925372-428D-4799-8DED-939C3176D461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97925372-428D-4799-8DED-939C3176D461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A75AABF2-BC0C-4DF9-9487-CAC89555DD06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A75AABF2-BC0C-4DF9-9487-CAC89555DD06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A75AABF2-BC0C-4DF9-9487-CAC89555DD06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A75AABF2-BC0C-4DF9-9487-CAC89555DD06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {329A8151-6B50-40CE-A90A-AF33C60A83DC}
+	EndGlobalSection
+EndGlobal
