@@ -45,6 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -132,11 +144,38 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901030902528_InitialModel.cs" />
+    <Compile Include="Migrations\201901030902528_InitialModel.Designer.cs">
+      <DependentUpon>201901030902528_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901030905593_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201901030905593_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201901030905593_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901030907567_AddRequiredAttributeToCustomerName.cs" />
+    <Compile Include="Migrations\201901030907567_AddRequiredAttributeToCustomerName.Designer.cs">
+      <DependentUpon>201901030907567_AddRequiredAttributeToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901030918522_SetNameToMembershipTypes.cs" />
+    <Compile Include="Migrations\201901030918522_SetNameToMembershipTypes.Designer.cs">
+      <DependentUpon>201901030918522_SetNameToMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\EntityConfigurations\CustomerConfigurations.cs" />
+    <Compile Include="Models\EntityConfigurations\MembershipTypeConfigurations.cs" />
+    <Compile Include="Models\EntityConfigurations\MovieConfigurations.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\VideoPortalDataBase.mdf" />
+    <Content Include="App_Data\VideoPortalDataBase_log.ldf">
+      <DependentUpon>VideoPortalDataBase.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -179,7 +218,18 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <EmbeddedResource Include="Migrations\201901030902528_InitialModel.resx">
+      <DependentUpon>201901030902528_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901030905593_PopulateMembershipTypes.resx">
+      <DependentUpon>201901030905593_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901030907567_AddRequiredAttributeToCustomerName.resx">
+      <DependentUpon>201901030907567_AddRequiredAttributeToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901030918522_SetNameToMembershipTypes.resx">
+      <DependentUpon>201901030918522_SetNameToMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
