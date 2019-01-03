@@ -9,3 +9,8 @@
 
 <h3>@Model.Id</h3>
 <h3>@Model.Name</h3>
+
+@if(Model.Birthday.HasValue)
+{
+    <h3>@Model.Birthday.Value.ToString("dd/MM/yyyy")</h3>
+}

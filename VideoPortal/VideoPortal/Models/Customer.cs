@@ -1,5 +1,6 @@
 ﻿namespace VideoPortal.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     public class Customer
@@ -10,5 +11,6 @@
         public bool IsSubscribedToNewsletter { get; set; }
         public MembershipType MembershipType { get; set; }
         public byte MembershipTypeId { get; set; }
+        public DateTime? Birthday { get; set; }
     }
 }
