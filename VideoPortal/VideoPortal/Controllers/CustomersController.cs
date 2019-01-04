@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using VideoPortal.Models;
 using System.Data.Entity;
+using VideoPortal.ViewModels;
 
 namespace VideoPortal.Controllers
 {
@@ -31,6 +32,25 @@ namespace VideoPortal.Controllers
                 return HttpNotFound();
 
             return View(customer);
+        }
+
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
         }
 
         protected override void Dispose(bool disposing)
