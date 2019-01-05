@@ -176,6 +176,14 @@
     <Compile Include="Migrations\201901041008486_RenameBirthdayToBirhdateForCustomer.Designer.cs">
       <DependentUpon>201901041008486_RenameBirthdayToBirhdateForCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901051500049_AddReleaseDataToMovie.cs" />
+    <Compile Include="Migrations\201901051500049_AddReleaseDataToMovie.Designer.cs">
+      <DependentUpon>201901051500049_AddReleaseDataToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901051501034_AddAttributesToMovieName.cs" />
+    <Compile Include="Migrations\201901051501034_AddAttributesToMovieName.Designer.cs">
+      <DependentUpon>201901051501034_AddAttributesToMovieName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -187,7 +195,8 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\NewCustomerViewModel.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\VideoPortalDataBase.mdf" />
@@ -230,11 +239,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Customers\New.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901030902528_InitialModel.resx">
@@ -260,6 +270,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901041008486_RenameBirthdayToBirhdateForCustomer.resx">
       <DependentUpon>201901041008486_RenameBirthdayToBirhdateForCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901051500049_AddReleaseDataToMovie.resx">
+      <DependentUpon>201901051500049_AddReleaseDataToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901051501034_AddAttributesToMovieName.resx">
+      <DependentUpon>201901051501034_AddAttributesToMovieName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
