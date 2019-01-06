@@ -144,6 +144,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ValidationAttributes\Min18YearsIfAMember.cs" />
     <Compile Include="Migrations\201901030902528_InitialModel.cs" />
     <Compile Include="Migrations\201901030902528_InitialModel.Designer.cs">
       <DependentUpon>201901030902528_InitialModel.cs</DependentUpon>
@@ -151,10 +152,6 @@
     <Compile Include="Migrations\201901030905593_PopulateMembershipTypes.cs" />
     <Compile Include="Migrations\201901030905593_PopulateMembershipTypes.Designer.cs">
       <DependentUpon>201901030905593_PopulateMembershipTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901030907567_AddRequiredAttributeToCustomerName.cs" />
-    <Compile Include="Migrations\201901030907567_AddRequiredAttributeToCustomerName.Designer.cs">
-      <DependentUpon>201901030907567_AddRequiredAttributeToCustomerName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201901030918522_SetNameToMembershipTypes.cs" />
     <Compile Include="Migrations\201901030918522_SetNameToMembershipTypes.Designer.cs">
@@ -183,6 +180,14 @@
     <Compile Include="Migrations\201901051501034_AddAttributesToMovieName.cs" />
     <Compile Include="Migrations\201901051501034_AddAttributesToMovieName.Designer.cs">
       <DependentUpon>201901051501034_AddAttributesToMovieName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901051817412_AddStringLengthAttributeToNameForCustomer.cs" />
+    <Compile Include="Migrations\201901051817412_AddStringLengthAttributeToNameForCustomer.Designer.cs">
+      <DependentUpon>201901051817412_AddStringLengthAttributeToNameForCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901061253320_AddRequredAttributesToCustomerAndMovie.cs" />
+    <Compile Include="Migrations\201901061253320_AddRequredAttributesToCustomerAndMovie.Designer.cs">
+      <DependentUpon>201901061253320_AddRequredAttributesToCustomerAndMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -276,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901051501034_AddAttributesToMovieName.resx">
       <DependentUpon>201901051501034_AddAttributesToMovieName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901051817412_AddStringLengthAttributeToNameForCustomer.resx">
+      <DependentUpon>201901051817412_AddStringLengthAttributeToNameForCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901061253320_AddRequredAttributesToCustomerAndMovie.resx">
+      <DependentUpon>201901061253320_AddRequredAttributesToCustomerAndMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
