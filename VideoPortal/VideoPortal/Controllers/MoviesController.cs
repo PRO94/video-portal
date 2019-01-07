@@ -18,11 +18,7 @@ namespace VideoPortal.Controllers
         
         public ActionResult Index()
         {
-            var movies = _context.Movies
-                .Include(m => m.Genre)
-                .ToList();
-
-            return View("List", movies);
+            return View("List");
         }
         
         public ActionResult Details(int id)

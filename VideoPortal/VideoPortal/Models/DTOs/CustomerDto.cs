@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using VideoPortal.Helpers.ValidationAttributes;
+//using VideoPortal.Helpers.ValidationAttributes;
 
 namespace VideoPortal.Models.DTOs
 {
@@ -15,6 +15,8 @@ namespace VideoPortal.Models.DTOs
         public bool IsSubscribedToNewsletter { get; set; }
 
         public byte MembershipTypeId { get; set; }
+
+        public MembershipTypeDto MembershipType { get; set; }
 
         //[Min18YearsIfAMember]
         public DateTime? Birthdate { get; set; }

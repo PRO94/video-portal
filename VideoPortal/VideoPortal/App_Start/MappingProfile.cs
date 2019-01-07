@@ -8,11 +8,17 @@ namespace VideoPortal
     {
         public MappingProfile()
         {
+            // Domain to DTO
             CreateMap<Customer, CustomerDto>();
-            CreateMap<CustomerDto, Customer>();
-
             CreateMap<Movie, MovieDto>();
+            CreateMap<MembershipType, MembershipTypeDto>();
+            CreateMap<Genre, GenreDto>();
+
+            // DTO to Domain
             CreateMap<MovieDto, Movie>();
+            CreateMap<CustomerDto, Customer>();
+            CreateMap<MembershipTypeDto, MembershipType>();
+            CreateMap<GenreDto, Genre>();
         }
     }
 }

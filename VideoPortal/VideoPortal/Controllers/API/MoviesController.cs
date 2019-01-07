@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
@@ -21,7 +22,9 @@ namespace VideoPortal.Controllers.API
         // GET /api/movies
         public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList()
+            return _context.Movies
+                .Include(m => m.Genre)
+                .ToList()
                 .Select(Mapper.Map<Movie, MovieDto>);
         }
 
@@ -29,6 +32,7 @@ namespace VideoPortal.Controllers.API
         public IHttpActionResult GetMovie(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
             if (movie == null)
                 return NotFound();
 

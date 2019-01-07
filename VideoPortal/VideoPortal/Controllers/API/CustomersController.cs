@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using System.Data.Entity;
 using AutoMapper;
 using VideoPortal.Models;
 using VideoPortal.Models.DTOs;
@@ -21,7 +22,9 @@ namespace VideoPortal.Controllers.API
         // GET /api/customers
         public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList()
+            return _context.Customers
+                .Include(c => c.MembershipType)
+                .ToList()
                 .Select(Mapper.Map<Customer, CustomerDto>);
         }
 
