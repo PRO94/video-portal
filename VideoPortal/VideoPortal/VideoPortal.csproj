@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -61,12 +64,24 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -137,7 +152,11 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\API\CustomersController.cs" />
+    <Compile Include="Controllers\API\MoviesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
@@ -152,6 +171,10 @@
     <Compile Include="Migrations\201901030905593_PopulateMembershipTypes.cs" />
     <Compile Include="Migrations\201901030905593_PopulateMembershipTypes.Designer.cs">
       <DependentUpon>201901030905593_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901030907567_AddRequiredAttributeToCustomerName.cs" />
+    <Compile Include="Migrations\201901030907567_AddRequiredAttributeToCustomerName.Designer.cs">
+      <DependentUpon>201901030907567_AddRequiredAttributeToCustomerName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201901030918522_SetNameToMembershipTypes.cs" />
     <Compile Include="Migrations\201901030918522_SetNameToMembershipTypes.Designer.cs">
@@ -185,14 +208,12 @@
     <Compile Include="Migrations\201901051817412_AddStringLengthAttributeToNameForCustomer.Designer.cs">
       <DependentUpon>201901051817412_AddStringLengthAttributeToNameForCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901061253320_AddRequredAttributesToCustomerAndMovie.cs" />
-    <Compile Include="Migrations\201901061253320_AddRequredAttributesToCustomerAndMovie.Designer.cs">
-      <DependentUpon>201901061253320_AddRequredAttributesToCustomerAndMovie.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\DTOs\CustomerDto.cs" />
+    <Compile Include="Models\DTOs\MovieDto.cs" />
     <Compile Include="Models\EntityConfigurations\CustomerConfigurations.cs" />
     <Compile Include="Models\EntityConfigurations\MembershipTypeConfigurations.cs" />
     <Compile Include="Models\EntityConfigurations\MovieConfigurations.cs" />
@@ -285,9 +306,6 @@
     <EmbeddedResource Include="Migrations\201901051817412_AddStringLengthAttributeToNameForCustomer.resx">
       <DependentUpon>201901051817412_AddStringLengthAttributeToNameForCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901061253320_AddRequredAttributesToCustomerAndMovie.resx">
-      <DependentUpon>201901061253320_AddRequredAttributesToCustomerAndMovie.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -298,10 +316,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
